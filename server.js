@@ -19,7 +19,7 @@ const io = new Server (server,{
 });
 
 io.on('connection', (socket)=>{
-    console.log("Un usuario se conecto !!!");
+    //console.log("Un usuario se conecto !!!");
 
     socket.on('usuario-voto',(data)=>{
         socket.broadcast.emit('server-usuario-voto', data);
@@ -30,9 +30,9 @@ io.on('connection', (socket)=>{
     });
 
     socket.on('nueva-partitura-agregada',(data)=>{
-     // socket.broadcast.emit('nueva-partitura-solicitada', data);  
-     console.log(data);
+     socket.broadcast.emit('nueva-partitura-agregada', data);  
     });
+    
 });
 
 server.listen(port, function(){
