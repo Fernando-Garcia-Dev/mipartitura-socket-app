@@ -26,8 +26,12 @@ io.on('connection', (socket)=>{
     });
   
     socket.on('nueva-partitura-solicitada',(data)=>{
-      socket.broadcast.emit('nueva-partitura-solicitada', data);
-      
+      socket.broadcast.emit('nueva-partitura-solicitada', data);  
+    });
+
+    socket.on('nueva-partitura-agregada',(data)=>{
+     // socket.broadcast.emit('nueva-partitura-solicitada', data);  
+     console.log(data);
     });
 });
 
